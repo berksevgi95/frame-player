@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <style>
+            #player {
+                height: 400px;
+                width: 500px;
+            }
+        </style>
+    </head>
+    <body>
+        <script src="frame-player.js"></script>
+        <script>
+            var player = new FramePlayer('player');
+            player
+                .on('ondownloadcomplete', function(ms) {
+                    console.log('download completed in ' + ms);
+                })
+                .on('onplay', function(ms) {
+                    console.log('video is playing now');
+                })
+                .on('onpause', function(ms) {
+                    console.log('video is paused');
+                })
+                .on('onend', function() {
+                    console.log('video is completed')
+                })
+        </script>
+
+        <div id="player"></div>
+    </body>
+</html>
